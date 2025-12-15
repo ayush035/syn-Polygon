@@ -21,14 +21,14 @@ const BetModal = ({ pollId, onClose, onSuccess }) => {
       return;
     }
 
-    if (parseFloat(amount) < 1) {
-      setError('Minimum bet is 1 ETH');
+    if (parseFloat(amount) < 0.1) {
+      setError('Minimum bet is 0.1 POL');
       return;
     }
 
     // Check balance
     if (balance && parseEther(amount.toString()) > balance.value) {
-      setError(`Insufficient balance. You have ${parseFloat(formatEther(balance.value)).toFixed(4)} ETH`);
+      setError(`Insufficient balance. You have ${parseFloat(formatEther(balance.value)).toFixed(4)} POL`);
       return;
     }
 
@@ -44,9 +44,9 @@ const BetModal = ({ pollId, onClose, onSuccess }) => {
       if (err.message.includes('Poll ended')) {
         errorMessage += 'This poll has ended and no longer accepts bets.';
       } else if (err.message.includes('Bet below $1')) {
-        errorMessage += 'Minimum bet is $1 USD equivalent in ETH.';
+        errorMessage += 'Minimum bet is 1 POL.';
       } else if (err.message.includes('insufficient funds')) {
-        errorMessage += 'Insufficient ETH balance for this bet plus gas fees.';
+        errorMessage += 'Insufficient POL balance for this bet plus gas fees.';
       } else if (err.message.includes('User rejected')) {
         errorMessage += 'Transaction was cancelled.';
       } else if (err.message.includes('gas')) {
@@ -84,7 +84,7 @@ const BetModal = ({ pollId, onClose, onSuccess }) => {
         {balance && (
           <div className="mb-4 p-2 rounded">
             <p className="text-xs text-gray-100">
-              Available: {parseFloat(formatEther(balance.value)).toFixed(4)} ETH
+              Available: {parseFloat(formatEther(balance.value)).toFixed(4)} POL
             </p>
           </div>
         )}
@@ -152,13 +152,13 @@ const BetModal = ({ pollId, onClose, onSuccess }) => {
 
           <div className="mb-6">
             <label className="block text-white text-sm font-bold mb-2">
-              Amount (ETH)
+              Amount (POL)
             </label>
             <div className="relative">
               <input
                 type="number"
                 step="0.5"
-                min="0.0001"
+                min="0.1"
                 max={balance ? formatEther(balance.value) : undefined}
                 value={amount}
                 onChange={(e) => setAmount(e.target.value)}
@@ -182,8 +182,8 @@ const BetModal = ({ pollId, onClose, onSuccess }) => {
               </button>
             </div>
             <div className="flex justify-between text-xs text-gray-100 mt-1">
-              <span>Minimum: 0.001 ETH</span>
-              <span>~0.001 ETH minimum</span>
+              <span>Minimum: 0.1 POL</span>
+              <span>~0.1 POL minimum</span>
             </div>
           </div>
 
@@ -212,11 +212,11 @@ const BetModal = ({ pollId, onClose, onSuccess }) => {
             <div className="mt-4 p-3 bg-blue-50 rounded border">
               <p className="text-sm font-semibold text-blue-800">Bet Summary:</p>
               <p className="text-xs text-blue-700">
-                Betting {amount} ETH on <strong>{option ? 'YES' : 'NO'}</strong>
+                Betting {amount} POL on <strong>{option ? 'YES' : 'NO'}</strong>
               </p>
               {balance && (
                 <p className="text-xs text-blue-600">
-                  Remaining balance: ~{(parseFloat(formatEther(balance.value)) - parseFloat(amount) - 0.01).toFixed(4)} ETH
+                  Remaining balance: ~{(parseFloat(formatEther(balance.value)) - parseFloat(amount) - 0.01).toFixed(4)} POL
                 </p>
               )}
             </div>

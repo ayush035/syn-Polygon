@@ -10,6 +10,9 @@ import { ConnectButton } from '@rainbow-me/rainbowkit';
 import { useReadContract } from 'wagmi';
 import { SOCIAL_GRAPH_CONTRACT } from '@/lib/config3';
 import FollowListModal from '../components/FollowListModal';
+import BettingStats from '../components/PredictionMarket/BettingStats';
+import BetHistory from '../components/PredictionMarket/BetHistory';
+import { useUserBettingStats } from '../hooks/useUserbets';
 
 export default function Dashboard() {
   const [userPosts, setUserPosts] = useState([]);
@@ -18,10 +21,15 @@ export default function Dashboard() {
   const [contractService, setContractService] = useState(null);
   const [showFollowersModal, setShowFollowersModal] = useState(false);
   const [showFollowingModal, setShowFollowingModal] = useState(false);
+  const [showBettingSection, setShowBettingSection] = useState(true);
 
   const { address, isConnected } = useAccount();
   const publicClient = usePublicClient();
   const { data: walletClient } = useWalletClient();
+
+  const bettingStats = useUserBettingStats();
+
+
 
   // Get followers array
   const { data: followersArray } = useReadContract({
@@ -288,6 +296,33 @@ export default function Dashboard() {
             </div>
           </button>
         </div>
+
+        {/* NEW: Betting Section Toggle */}
+        <div className="mb-6">
+          <button
+            onClick={() => setShowBettingSection(!showBettingSection)}
+            className="flex items-center gap-2 text-white hover:text-[#ED3968] transition-colors"
+          >
+            <TrendingUp className="h-5 w-5" />
+            <span className="font-semibold">
+              {showBettingSection ? 'Hide' : 'Show'} Betting Dashboard
+            </span>
+          </button>
+        </div>
+
+        {/* NEW: Betting Dashboard Section */}
+        {showBettingSection && (
+          <div className="mb-8">
+            <h2 className="text-2xl font-bold text-white mb-4">Prediction Market Stats</h2>
+            
+            {/* Betting Stats Cards */}
+            <BettingStats stats={bettingStats} />
+
+            {/* Bet History */}
+            <BetHistory stats={bettingStats} />
+          </div>
+        )}
+
         
         {/* Upload Component */}
         <ImageUpload onUploadSuccess={handleUploadSuccess} />

@@ -77,9 +77,9 @@ const PredictionMarket = () => {
                 </p>
               </div>
               <div className="text-center">
-                <p className="text-xs text-white">HBAR/USD</p>
+                <p className="text-xs text-white">POL/USD</p>
                 <p className="font-bold text-lg text-[#ED3968] ">
-                  ${getFormattedPrice('0x3728e591097635310e6341af53db8b7ee42da9b3a8d918f9463ce9cca886dfbd') || 'N/A'}
+                  ${getFormattedPrice('0xffd11c5a1cfd42f80afb2df4d9f264c15f956d68153335374ec10722edd70472') || 'N/A'}
                 </p>
               </div>
               <div className="text-center">

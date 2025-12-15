@@ -126,7 +126,22 @@ const CreatePoll = () => {
             <option value={PRICE_FEEDS.ETH_USD}>ETH/USD</option>
             <option value={PRICE_FEEDS.BTC_USD}>BTC/USD</option>
             <option value={PRICE_FEEDS.SOL_USD}>SOL/USD</option>
-            <option value={PRICE_FEEDS.HBAR_USD}>HBAR/USD</option>
+            <option value={PRICE_FEEDS.HBAR_USD}>POL/USD</option>
+            <option value={PRICE_FEEDS.HBAR_USD}>LINK/USD</option>
+            <option value={PRICE_FEEDS.HBAR_USD}>OP/USD</option>
+            <option value={PRICE_FEEDS.HBAR_USD}>ARB/USD</option>
+            <option value={PRICE_FEEDS.HBAR_USD}>GOLD/USD</option>
+            <option value={PRICE_FEEDS.HBAR_USD}>FET/USD</option>
+            <option value={PRICE_FEEDS.HBAR_USD}>ASTER/USD</option>
+            <option value={PRICE_FEEDS.HBAR_USD}>MON/USD</option>
+            <option value={PRICE_FEEDS.HBAR_USD}>INR/USD</option>
+            <option value={PRICE_FEEDS.HBAR_USD}>GBP/USD</option>
+            <option value={PRICE_FEEDS.HBAR_USD}>EUR/USD</option>
+            <option value={PRICE_FEEDS.HBAR_USD}>AUD/CHF</option>
+            <option value={PRICE_FEEDS.HBAR_USD}>CAD/CHF</option>
+            <option value={PRICE_FEEDS.HBAR_USD}>CHF/JPY</option>
+            <option value={PRICE_FEEDS.HBAR_USD}>GBP/USD</option>
+
 
           </select>
         </div>

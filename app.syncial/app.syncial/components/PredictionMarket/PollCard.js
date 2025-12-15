@@ -201,9 +201,9 @@ const PollCard = ({ pollId }) => {
 
       {/* Poll Stats */}
       <div className="text-md text-white mb-4">
-        <p>Total Pool: <span className="font-semibold">{totalPoolETH} ETH</span></p>
-        <p>Yes Pool: <span className="font-semibold">{totalYesETH} ETH</span></p>
-        <p>No Pool: <span className="font-semibold">{totalNoETH} ETH</span></p>
+        <p>Total Pool: <span className="font-semibold">{totalPoolETH} POL</span></p>
+        <p>Yes Pool: <span className="font-semibold">{totalYesETH} POL</span></p>
+        <p>No Pool: <span className="font-semibold">{totalNoETH} POL</span></p>
         <p>Max Price During Poll: <span className="font-semibold">{maxPriceETH}</span></p>
         <p>Target Price: <span className="font-semibold">{targetPriceETH}</span></p>
         <p>Host: <span className="font-mono text-xs">{host.slice(0, 6)}...{host.slice(-4)}</span></p>
@@ -219,8 +219,8 @@ const PollCard = ({ pollId }) => {
         <div className="mb-4 p-3 bg-[#16030d]  rounded">
           <p className="text-sm font-semibold text-White mb-1">Your Bets:</p>
           <div className="flex gap-4 text-sm">
-            <span className="text-[#ED3968]">YES: {userYesETH} ETH</span>
-            <span className="text-white">NO: {userNoETH} ETH</span>
+            <span className="text-[#ED3968]">YES: {userYesETH} POL</span>
+            <span className="text-white">NO: {userNoETH} POL</span>
           </div>
         </div>
       )}
